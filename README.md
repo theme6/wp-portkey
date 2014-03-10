@@ -30,7 +30,7 @@ Run `grunt build`, to build your theme. During build the CSS and JS files are co
 Follow the *exact* tags and attributes shown to include js and css files. Since we are replacing the `get_template_directory_uri()` with a string search and replace during the build process.
 
 In header.php
-```
+```php
 <!-- build:css css/main.min.css -->
 <link rel="stylesheet" href="<?php printf(get_template_directory_uri()); ?>/bower_components/normalize.css/normalize.css">
 <link rel="stylesheet" href="<?php printf(get_template_directory_uri()); ?>/css/main.css">
@@ -38,7 +38,7 @@ In header.php
 ```
 
 In footer.php
-```
+```php
 <!-- build:js js/main.min.js -->
 <script src="<?php printf(get_template_directory_uri()); ?>/js/plugins.js"></script>
 <script src="<?php printf(get_template_directory_uri()); ?>/js/main.js"></script>
