@@ -27,7 +27,7 @@ While you are developing the theme run `grunt develop` in your terminal. This wi
 ## Building
 Run `grunt build`, to build your theme. During build the CSS and JS files are concatenated, minified and revision-ed. This is done using [Grunt Usemin task](https://github.com/yeoman/grunt-usemin).
 
-Follow the **exact** tags and attributes shown to include js and css files. Since we are replacing the `get_template_directory_uri()` with a string search and replace during the build process.
+Follow the **exact** tags and attributes shown below to include js and css files. Since we are replacing the `get_template_directory_uri()` with a string search and replace during the build process.
 
 In header.php
 ```html
