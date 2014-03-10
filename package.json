@@ -1,6 +1,6 @@
 {
   "name": "wp-portkey",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Wordpress Theme Development, Build and Deployment Workflow.",
   "repository": {
     "type": "git",
