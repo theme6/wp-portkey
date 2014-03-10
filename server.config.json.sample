@@ -1,0 +1,6 @@
+{
+  "path"     : "FULL-PATH-TO-REMOTE-SERVER",
+  "host"     : "HOSTNAME",
+  "port"     : "PORT",
+  "username" : "USERNAME"
+}

@@ -1,0 +1,14 @@
+/*!
+Theme Name: WP Portkey
+Theme URI: https://github.com/theme6/wp-portkey
+Author: Theme6
+Author URI: http://theme6.com/
+Description: A Wordpress Theme Development, Build and Deployment Workflow.
+Version: 0.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*
+This file is kept for the purpose of Wordpress. Since, style.css cannot be versioned for Cache bursting; all the styles are kept inside scss/ which in turn compiled to css/main.css.
+*/
