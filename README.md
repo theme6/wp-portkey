@@ -17,7 +17,7 @@ A Wordpress Theme Development, Build and Deployment Workflow.
 ## Deployment
 Copy `server.config.json.sample` to `server.config.json` and fill in with you server credentials and installation paths.
 
-Even if your are not going to deploy your theme, just create `server.config.json` to avoid the error `Error: Unable to read "server.config.json" file (Error code: ENOENT)`.
+Even if you are not going to deploy the theme, just create `server.config.json` to avoid the error `Error: Unable to read "server.config.json" file (Error code: ENOENT)`.
 
 ## Usage
 
