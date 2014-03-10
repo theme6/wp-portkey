@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*1rem;
+    @if $line-height == true{
+        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+}
+
+// Silent Sass Classes - A.K.A Placeholders
+//
+// normal: Indicates that lines may only break at normal word break points.
+// break-word : Indicates that normally unbreakable words may be broken at
+// arbitrary points if there are no otherwise acceptable break points in the line.
+
+%breakword {
+  word-wrap: break-word;
+}
+
+%normal-wrap {
+  word-wrap: normal;
+}
+
+%auto-wrap {
+  word-wrap: auto;
+}
+
+// Convert pixels to rems
+
+@function rem($pxval, $base: $base-font-size) {
+  @return #{($pxval/$base)}rem;
+}
+
+// breakpoint: Chris Coyier's method for creating media queries.
+// See: http://css-tricks.com/media-queries-sass-3-2-and-codekit/
+// Make up **meaningful** names for your breakpoints so that you
+// and the members of your team can understand and remember them.
+// Also, adjust this mixin for as many breakpoints as you need.
+// You'll likely need finer control for things like font size
+// adjustments, so the "responsive" mixin above can help fill in
+// the gaps.
+//
+// This is currently set up as mobile first, expanding upwards.
+// You'll need to change "min-width" to "max-width" if you're
+// working from the desktop down.
+@mixin breakpoint($breakpoint, $media: all) {
+  @if $breakpoint == mobile {
+    @media only #{$media} and (max-width: 659px)  { @content; }
+  }
+  @if $breakpoint == medium {
+    @media only #{$media} and (min-width: 660px)  { @content; }
+  }
+  @else if $breakpoint == large {
+    @media only #{$media} and (min-width: 1200px) { @content; }
+  }
+  @else if $breakpoint == xlarge {
+    @media only #{$media} and (min-width: 1600px) { @content; }
+  }
+  @else if $breakpoint == retina {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 2dppx) {
+      @content;
+    }
+  }
+}
+
+// bp: alias for breakpoint
+@mixin bp($breakpoint, $media: all) {
+  @include breakpoint($breakpoint, $media) {
+    @content;
+  }
+}

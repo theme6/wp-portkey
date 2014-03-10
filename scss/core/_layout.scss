@@ -1,0 +1,13 @@
+.row {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90%;
+
+  @include bp("large") {
+    max-width: 36rem;
+  }
+
+  @include bp("xlarge") {
+    max-width: 48rem;
+  }
+}
