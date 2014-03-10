@@ -46,6 +46,12 @@ In footer.php
 <!-- endbuild -->
 ```
 
+## Deployment
+
+After you setup the credentials in `server.config.json`, you can deploy your theme to your server with the script;
+
+`grunt deploy`
+
 ## Authors
 
 * [Theme6](http://theme6.com/)
