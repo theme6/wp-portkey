@@ -1,11 +1,50 @@
-.DS_Store
-server.config.json
+# PROJECT FOLDERS & FILES
 
-.sass-cache
+*.sublime-project
+*.sublime-workspace
 /.bundle
 /.tmp
-/bower_components
-/css/main.css
-/dist
 /node_modules
 /vendor
+/dist
+/bower_components
+/css/main.css
+server.config.json
+
+# Let's avoid conflict
+/style.css
+/scripts/*.js
+
+# α--------------------π--------------------∞
+
+# Ignore hidden folders #
+# This takes care of .tmp, .sass-cache, and many others #
+.*/
+
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Always-ignore files and folders #
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swn
+*.swo
+*.swp
+._*
+*~
+
+# Ignore packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
