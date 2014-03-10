@@ -16,3 +16,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+  <header class="site-header row">
+    <h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+    <h2 class="site-header__description"><?php bloginfo( 'description' ); ?></h2>
+  </header>

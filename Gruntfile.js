@@ -48,6 +48,7 @@ module.exports = function (grunt) {
       sass: {
         files: [
           '<%= paths.sass %>/core/*.{scss,sass}',
+          '<%= paths.sass %>/modules/*.{scss,sass}',
           '<%= paths.sass %>/*.{scss,sass}'
         ],
         tasks: ['sass:dev']

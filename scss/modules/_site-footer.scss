@@ -1,0 +1,7 @@
+.site-footer {
+  @include font-size($font-size-milli);
+
+  margin-top: $base-spacing-unit;
+  padding-top: $half-spacing-unit;
+  border-top: $base-border-width solid $color-gray-lighter;
+}

@@ -13,7 +13,7 @@ $base-font-family:           $base-serif-font-family !default;
 $alt-font-family:            $base-san-serif-font-family !default;
 
 $base-color:                 #ff4500 !default; //orangered
-$base-border-width:          0.10526315789474em !default; // 2px / 19px
+$base-border-width:          0.111111111em !default; // 2px / 18px
 $base-radius:                3px !default;
 
 /*------------------------------------*\
@@ -58,10 +58,12 @@ $color-gray:         lighten($color-black, 33.5%);
 $color-gray-light:   lighten($color-black, 60%);
 $color-gray-lighter: lighten($color-black, 93.5%);
 
-$color-bg-dark:      $color-black;
-$color-bg-light:     $color-white;
-$color-text-dark:    $color-black;
-$color-text-light:   $color-white;
+$color-bg-dark:         $color-black;
+$color-bg-light:        $color-white;
+$color-text-dark:       $color-black;
+$color-text-light:      $color-white;
+$color-text-link:       $color-base;
+$color-text-link-hover: darken($color-base, 10%);
 
 $color-border:       darken($color-gray-lighter, 10%);
 $color-success:      #3cb371 !default; //mediumseagreen

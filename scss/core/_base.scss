@@ -27,11 +27,13 @@ p {
 
 a {
   @include transition( color 0.15s ease-out, opacity 0.15s ease-out);
-  color: $color-text-dark;
+  color: $color-text-link;
+  text-decoration: none;
 
   &:hover,
-  &:active {
-    text-decoration: none;
+  &:active,
+  &:focus {
+    color: $color-text-link-hover;
   }
 }
 
@@ -73,6 +75,10 @@ h4,
 h5,
 h6 {
   font-weight: $font-weight-normal;
+}
+
+img {
+  max-width: 100%;
 }
 
 // Remove the glow on buttons and input fields on Safari and Chrome.
