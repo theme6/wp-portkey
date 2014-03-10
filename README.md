@@ -22,10 +22,10 @@ Even if your are not going to deploy your theme, just create `server.config.json
 ## Usage
 
 ## Developing
-While you are developing the theme run `grunt develop` in your terminal. This will compile your SASS files, watch for any file changes and refreshes the browser through (Livereload)[http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions] when any file changes.
+While you are developing the theme run `grunt develop` in your terminal. This will compile your SASS files, watch for any file changes and refreshes the browser through [Livereload](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions) when any file changes.
 
 ## Building
-Run `grunt build`, to build your theme. During build the CSS and JS files are concatenated, minified and revision-ed. This is done using (Grunt Usemin task)[https://github.com/yeoman/grunt-usemin].
+Run `grunt build`, to build your theme. During build the CSS and JS files are concatenated, minified and revision-ed. This is done using [Grunt Usemin task](https://github.com/yeoman/grunt-usemin).
 
 Follow the *exact* tags and attributes shown to include js and css files. Since we are replacing the `get_template_directory_uri()` with a string search and replace during the build process.
 
