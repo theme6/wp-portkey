@@ -60,4 +60,4 @@ After you setup the credentials in `server.config.json`, you can deploy your the
 
 ### LICENSE
 
-Licensed under GPL v3 or late. A copy of the licence is included.
+Licensed under GPL v3 or later. A copy of the licence is included.
