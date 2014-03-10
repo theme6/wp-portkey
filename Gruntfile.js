@@ -101,7 +101,14 @@ module.exports = function (grunt) {
     },
 
     clean: {
-      dist: ['<%= paths.dist %>']
+      dist: ['<%= paths.dist %>'],
+      release: [
+        '<%= paths.dist %>/<%= pkg.name %>/bower_components',
+        '<%= paths.dist %>/<%= pkg.name %>/css/*.css',
+        '!<%= paths.dist %>/<%= pkg.name %>/css/*.min.*.css',
+        '<%= paths.dist %>/<%= pkg.name %>/js/*.js',
+        '!<%= paths.dist %>/<%= pkg.name %>/js/*.min.*.js'
+      ]
     },
 
     copy: {
@@ -113,8 +120,8 @@ module.exports = function (grunt) {
           dest: '<%= paths.dist %>/<%= pkg.name %>',
           src: [
             'bower_components/**/*',
-            'scripts/**/*',
-            'fonts/*',
+            'js/**/*',
+            'css/**/*',
             '*.{html,css,php,ico,png}'
           ]
         }]
@@ -156,13 +163,17 @@ module.exports = function (grunt) {
     filerev: {
       files: {
         src: [
-          '<%= paths.dist %>/<%= pkg.name %>/*.js'
+          '<%= paths.dist %>/<%= pkg.name %>/js/*.min.js',
+          '<%= paths.dist %>/<%= pkg.name %>/css/*.min.css'
         ]
       }
     },
 
     useminPrepare: {
-      html: '<%= paths.dist %>/<%= pkg.name %>/footer.php',
+      src: [
+        '<%= paths.dist %>/<%= pkg.name %>/header.php',
+        '<%= paths.dist %>/<%= pkg.name %>/footer.php'
+        ],
       options: {
         dest: '<%= paths.dist %>/<%= pkg.name %>',
         root: '<%= paths.dist %>/<%= pkg.name %>',
@@ -174,7 +185,13 @@ module.exports = function (grunt) {
                 createConfig: createConcatConfig
               },
               'uglifyjs'
-            ]
+            ],
+            'css': [
+              {
+                name: 'concat',
+                createConfig: createConcatConfig
+              },
+              'cssmin']
           },
           post: {}
         }
@@ -182,25 +199,27 @@ module.exports = function (grunt) {
     },
 
     usemin: {
-      html: ['<%= paths.dist %>/<%= pkg.name %>/footer.php'],
+      html: [
+        '<%= paths.dist %>/<%= pkg.name %>/header.php',
+        '<%= paths.dist %>/<%= pkg.name %>/footer.php'
+      ]
     },
     // Putting back Wordpress asses path to optimized files.
     replace: {
       scripts: {
         src: [
           '<%= paths.dist %>/<%= pkg.name %>/footer.php',
-          '<%= paths.dist %>/<%= pkg.name %>/header.php',
-          '<%= paths.dist %>/<%= pkg.name %>/functions.php'
+          '<%= paths.dist %>/<%= pkg.name %>/header.php'
         ],
         overwrite: true,
         replacements: [
           {
-            from: '<script src="./',
+            from: '<script src="',
             to: '<script src="<?php printf(get_template_directory_uri()); ?>/'
           },
           {
-            from: 'ATC_CACHE_BURST_ON_GRUNT',
-            to: '<%= grunt.option("gitRevision") %>'
+            from: '<link rel="stylesheet" href="',
+            to: '<link rel="stylesheet" href="<?php printf(get_template_directory_uri()); ?>/'
           },
         ]
       }
@@ -227,14 +246,15 @@ grunt.registerTask('build', [
   'clean:dist',
   'sass:dist',
   'copy',
-  // 'useminPrepare',
-  // 'concat',
-  // 'uglify',
-  // 'filerev',
-  // 'usemin',
-  // 'replace',
-  // 'clean:release',
-  // 'zip'
+  'useminPrepare',
+  'concat',
+  'uglify',
+  'cssmin',
+  'filerev',
+  'usemin',
+  'replace',
+  'clean:release',
+  'zip'
   ]);
 
 grunt.registerTask('develop', [

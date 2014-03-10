@@ -16,3 +16,8 @@ A Wordpress Theme Development, Build and Deployment Workflow.
 
 ## Deployment
 Copy `server.config.json.sample` to `server.config.json` and fill in with you server credentials and installation paths.
+
+## Usage
+
+### JS Files
+### CSS Files

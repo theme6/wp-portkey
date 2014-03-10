@@ -1,0 +1,1 @@
+console.log("WP Portkey: main.js") // Delete this line

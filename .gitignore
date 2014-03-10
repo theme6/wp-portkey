@@ -3,6 +3,7 @@ server.config.json
 
 .sass-cache
 /.bundle
+/.tmp
 /bower_components
 /css/main.css
 /dist
