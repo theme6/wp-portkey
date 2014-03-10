@@ -233,7 +233,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          src: '<%= paths.dist %>/<%= paths.themeName %>/',
+          src: '<%= paths.dist %>/<%= pkg.name %>/',
           dest: '<%= deploymentConfig.username %>@<%= deploymentConfig.host %>:<%= deploymentConfig.path %>',
           syncDest: true,
           ssh: true,
