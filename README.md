@@ -52,11 +52,14 @@ After you setup the credentials in `server.config.json`, you can deploy your the
 
 `grunt deploy`
 
+## Versioning
+We have added support for [Semantic Versioning](http://semver.org/). The primary place where theme's version is stored is in `package.json`. It's easier to change the version with [npm-version](https://www.npmjs.org/doc/cli/npm-version.html). Once you update your theme's version in `package.json`, on the next run of `grunt develop` or `grunt build`, `style.css` will have the new version.
+
 ## Authors
 
 * [Theme6](http://theme6.com/)
-	* [Brajeshwar Oinam](http://brajeshwar.me/)
-	* [Saneef Ansari](http://saneef.com/)
+  * [Brajeshwar Oinam](http://brajeshwar.me/)
+  * [Saneef Ansari](http://saneef.com/)
 
 ### LICENSE
 

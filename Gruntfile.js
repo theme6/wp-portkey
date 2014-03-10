@@ -223,6 +223,18 @@ module.exports = function (grunt) {
             to: '<link rel="stylesheet" href="<?php printf(get_template_directory_uri()); ?>/'
           },
         ]
+      },
+      version: {
+        src: [
+          '<%= paths.base %>/style.css'
+        ],
+        overwrite: true,
+        replacements: [
+          {
+            from: /Version:(\s+)(.*)/g,
+            to: 'Version:$1<%= pkg.version %>'
+          }
+        ]
       }
     },
 
@@ -244,6 +256,7 @@ module.exports = function (grunt) {
   });
 
 grunt.registerTask('build', [
+  'replace:version',
   'clean:dist',
   'sass:dist',
   'copy',
@@ -253,12 +266,13 @@ grunt.registerTask('build', [
   'cssmin',
   'filerev',
   'usemin',
-  'replace',
+  'replace:scripts',
   'clean:release',
   'zip'
   ]);
 
 grunt.registerTask('develop', [
+  'replace:version',
   'sass:dev',
   'watch'
   ]);
