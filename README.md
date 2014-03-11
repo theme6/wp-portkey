@@ -1,4 +1,4 @@
-# WP-Portkey
+# WP-Portkey ![Node.js Dependencies Status](https://david-dm.org/theme6/wp-portkey.png)
 
 > A WordPress Theme Development, Build and Deployment Workflow with [Node.js](http://nodejs.org/), [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/).
 
@@ -48,9 +48,7 @@ In footer.php
 
 ## Deployment
 
-After you setup the credentials in `server.config.json`, you can deploy your theme to your server with the script;
-
-`grunt deploy`
+After you setup the credentials in `server.config.json`, you can deploy your theme to your server with the grunt task `grunt deploy`
 
 ## Versioning
 We have added support for [Semantic Versioning](http://semver.org/). The primary place where theme's version is stored is in `package.json`. It's easier to change the version with [npm-version](https://www.npmjs.org/doc/cli/npm-version.html). Once you update your theme's version in `package.json`, on the next run of `grunt develop` or `grunt build`, `style.css` will have the new version.
