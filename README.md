@@ -1,4 +1,4 @@
-# WP-Portkey [![Dependency Status](https://gemnasium.com/theme6/wp-portkey.png)](https://gemnasium.com/theme6/wp-portkey)
+# WP-Portkey [![Dependency Status](https://david-dm.org/theme6/wp-portkey.png)](https://david-dm.org/theme6/wp-portkey#info=devDependencies&view=list)
 
 > A WordPress Theme Development, Build and Deployment Workflow with [Node.js](http://nodejs.org/), [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/).
 
