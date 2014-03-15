@@ -1,3 +1,5 @@
 source "http://rubygems.org"
 
-gem 'sass', '>=3.3'
+group :development do
+  gem 'sass', '>=3.3'
+end
