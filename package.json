@@ -21,6 +21,7 @@
   "homepage": "https://github.com/theme6/wp-portkey",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^1.0.1",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.5.0",

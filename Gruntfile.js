@@ -36,7 +36,8 @@ module.exports = function (grunt) {
       base: '.',
       dist: 'dist',
       sass: 'scss',
-      scripts: 'js'
+      scripts: 'js',
+      styles: 'css'
     },
 
     pkg: grunt.file.readJSON('package.json'),
@@ -49,12 +50,12 @@ module.exports = function (grunt) {
         files: [
           '<%= paths.sass %>/**/*.{scss,sass}'
         ],
-        tasks: ['sass:dev']
+        tasks: ['sass:dev', 'autoprefixer']
       },
       livereload: {
         files: [
         '*.{html,php}',
-        'css/*.css',
+        '<%= paths.styles %>/*.css',
         'scripts/*.js',
         ],
         options: {
@@ -80,7 +81,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= paths.sass %>/',
           src: [ 'main.scss'],
-          dest: 'css/',
+          dest: '<%= paths.styles %>',
           ext: '.css'
         }]
       },
@@ -94,9 +95,18 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= paths.sass %>/',
           src: [ 'main.scss'],
-          dest: 'css/',
+          dest: '<%= paths.styles %>',
           ext: '.css'
         }]
+      }
+    },
+
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      mainStyles: {
+        src: '<%= paths.styles %>/**/*.css'
       }
     },
 
@@ -104,10 +114,10 @@ module.exports = function (grunt) {
       dist: ['<%= paths.dist %>'],
       release: [
         '<%= paths.dist %>/<%= pkg.name %>/bower_components',
-        '<%= paths.dist %>/<%= pkg.name %>/css/*.css',
-        '!<%= paths.dist %>/<%= pkg.name %>/css/*.min.*.css',
-        '<%= paths.dist %>/<%= pkg.name %>/js/*.js',
-        '!<%= paths.dist %>/<%= pkg.name %>/js/*.min.*.js'
+        '<%= paths.dist %>/<%= pkg.name %>/<%= paths.styles %>/*.css',
+        '!<%= paths.dist %>/<%= pkg.name %>/<%= paths.styles %>/*.min.*.css',
+        '<%= paths.dist %>/<%= pkg.name %>/<%= paths.scripts %>/*.js',
+        '!<%= paths.dist %>/<%= pkg.name %>/<%= paths.scripts %>/*.min.*.js'
       ]
     },
 
@@ -120,8 +130,8 @@ module.exports = function (grunt) {
           dest: '<%= paths.dist %>/<%= pkg.name %>',
           src: [
             'bower_components/**/*',
-            'js/**/*',
-            'css/**/*.css',
+            '<%= paths.scripts %>/**/*',
+            '<%= paths.styles %>/**/*.css',
             '*.{html,css,php,ico,png}'
           ]
         }]
@@ -163,8 +173,8 @@ module.exports = function (grunt) {
     filerev: {
       files: {
         src: [
-          '<%= paths.dist %>/<%= pkg.name %>/js/*.min.js',
-          '<%= paths.dist %>/<%= pkg.name %>/css/*.min.css'
+          '<%= paths.dist %>/<%= pkg.name %>/<%= paths.scripts %>/*.min.js',
+          '<%= paths.dist %>/<%= pkg.name %>/<%= paths.styles %>/*.min.css'
         ]
       }
     },
@@ -258,6 +268,7 @@ grunt.registerTask('build', [
   'replace:version',
   'clean:dist',
   'sass:dist',
+  'autoprefixer',
   'copy',
   'useminPrepare',
   'concat',
@@ -273,6 +284,7 @@ grunt.registerTask('build', [
 grunt.registerTask('develop', [
   'replace:version',
   'sass:dev',
+  'autoprefixer',
   'watch'
   ]);
 
