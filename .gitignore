@@ -8,7 +8,7 @@
 /vendor
 /dist
 /bower_components
-/css/main.css
+/css
 server.config.json
 
 # Let's avoid conflict

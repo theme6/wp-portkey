@@ -69,6 +69,7 @@ module.exports = function (grunt) {
     sass: {
       options: {
         bundleExec: true,
+        loadPath: ['bower_components'],
         precision: 14
       },
       dev: {
@@ -122,7 +123,7 @@ module.exports = function (grunt) {
           src: [
             'bower_components/**/*',
             'js/**/*',
-            'css/**/*',
+            'css/**/*.css',
             '*.{html,css,php,ico,png}'
           ]
         }]

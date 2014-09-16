@@ -19,5 +19,8 @@
   "devDependencies": {
     "normalize.css": "~3.0.0",
     "bourbon": "~3.1.8"
+  },
+  "dependencies": {
+    "bourbon": "~4.0.2"
   }
 }
