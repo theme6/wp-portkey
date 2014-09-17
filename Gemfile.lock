@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    sass (3.3.3)
+    sass (3.4.4)
 
 PLATFORMS
   ruby
