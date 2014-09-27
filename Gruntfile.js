@@ -6,22 +6,27 @@ var path = require('path');
 // Here we strip out WP's template directory function call
 // and provide the relative path for Uglify, Minify etc.
 function createConcatConfig(context, block) {
-  var cfg = {files: []};
-  var staticPattern = /<\?php printf\(get_template_directory_uri\(\)\)\; \?>/;
+  var cfg = {files: []}
+    , outfile
+    , files
+    , staticPattern = /<\?php printf\(get_template_directory_uri\(\)\)\; \?>/;
 
   block.dest = block.dest.replace(staticPattern, '');
-  var outfile = path.join(context.outDir, block.dest);
+  outfile = path.join(context.outDir, block.dest);
 
   // Depending whether or not we're the last of the step we're not going to output the same thing
-  var files = {
+  files = {
     dest: outfile,
     src: []
   };
+
   context.inFiles.forEach(function(f) {
     files.src.push(path.join(context.inDir, f.replace(staticPattern, '')));
   });
+
   cfg.files.push(files);
   context.outFiles = [block.dest];
+
   return cfg;
 }
 
@@ -30,6 +35,8 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
   // Load all Grunt tasks
   require('load-grunt-tasks')(grunt);
+
+  var target = grunt.option('target') || 'dev';
 
   grunt.initConfig({
     paths: {
@@ -42,7 +49,7 @@ module.exports = function (grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    deploymentConfig: grunt.file.readJSON('server.config.json'),
+    deploymentConfig: grunt.file.readJSON('servers.config.json')[target],
 
     watch: {
       options: {},
