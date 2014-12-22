@@ -16,9 +16,9 @@ You need to have [Node.js](http://nodejs.org/), [Bower](http://bower.io/) and [G
 `bower install`
 
 ## Deployment
-Copy `server.config.json.sample` to `server.config.json` and fill in with you server credentials and installation paths.
+Copy `servers.config.json.sample` to `servers.config.json` and fill in with you server credentials and installation paths.
 
-Even if you are not going to deploy the theme, just create `server.config.json` to avoid the error `Error: Unable to read "server.config.json" file (Error code: ENOENT)`.
+Even if you are not going to deploy the theme, just create `servers.config.json` to avoid the error `Error: Unable to read "servers.config.json" file (Error code: ENOENT)`.
 
 ## Usage
 
@@ -48,7 +48,7 @@ In footer.php
 
 ## Deployment
 
-After you setup the credentials in `server.config.json`, you can deploy your theme to your server with the grunt task `grunt deploy`
+After you setup the credentials in `servers.config.json`, you can deploy your theme to your server with the grunt task `grunt deploy --target=dev`. If you don't specify any target by default the server configuration of ‘dev’ will be used.
 
 ## Versioning
 We have added support for [Semantic Versioning](http://semver.org/). The primary place where theme's version is stored is in `package.json`. It's easier to change the version with [npm-version](https://www.npmjs.org/doc/cli/npm-version.html). Once you update your theme's version in `package.json`, on the next run of `grunt develop` or `grunt build`, `style.css` will have the new version.

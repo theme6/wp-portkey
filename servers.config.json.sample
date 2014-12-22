@@ -1,0 +1,15 @@
+{
+  "dev": { // Default configuration
+    "path"     : "FULL-PATH-TO-REMOTE-SERVER",
+    "host"     : "HOSTNAME",
+    "port"     : "PORT",
+    "username" : "USERNAME"
+  },
+  "production": {
+    "path"     : "FULL-PATH-TO-REMOTE-SERVER",
+    "host"     : "HOSTNAME",
+    "port"     : "PORT",
+    "username" : "USERNAME"
+  }
+}
+
