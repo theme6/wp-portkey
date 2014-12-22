@@ -32,8 +32,8 @@
     "grunt-filerev": "^0.2.1",
     "grunt-rsync": "^0.6.2",
     "grunt-text-replace": "^0.3.12",
-    "grunt-usemin": "^2.0.2",
-    "grunt-zip": "^0.16.0",
+    "grunt-usemin": "^2.6.2",
+    "grunt-zip": "^0.16.2",
     "load-grunt-tasks": "^0.6.0",
     "time-grunt": "^1.0.0"
   }
