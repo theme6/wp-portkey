@@ -9,7 +9,7 @@
 /dist
 /bower_components
 /css
-server.config.json
+servers.config.json
 
 # Let's avoid conflict
 /style.css
